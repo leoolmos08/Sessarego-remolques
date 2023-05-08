@@ -1,12 +1,12 @@
-import React from 'react'
-import CarouselComponent from './Carousel'
-import DetalleVehiculo from './DetalleVehiculo'
+import CarouselComponent from "./Carousel";
+import DetalleVehiculo from "./DetalleVehiculo";
+import React from "react";
 
 export default function DetalleVehiculoContainer() {
   return (
-    <div className='h-screen flex flex-col sm:flex-row justify-center'>
+    <div className="flex flex-col sm:flex-row justify-center">
       <CarouselComponent />
       <DetalleVehiculo />
     </div>
-  )
+  );
 }

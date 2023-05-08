@@ -19,6 +19,7 @@ const sortOptions = [
 const subCategories = [
   { name: "Todos", href: "#" },
   { name: "Camiones", href: "#" },
+  { name: "Remolques", href: "#" },
   { name: "Pick-up", href: "#" },
   { name: "Utilitario", href: "#" },
   { name: "Maquinaria Vial", href: "#" },
@@ -26,14 +27,13 @@ const subCategories = [
 
 const remolques = [
   { name: "Acoplados", href: "#" },
-  { name: "Semiremolques", href: "#" },
+  { name: "Semi Remolques", href: "#" },
   { name: "Carrocerías", href: "#" },
   { name: "Bateas", href: "#" },
   { name: "Carretones", href: "#" },
   { name: "Tolvas", href: "#" },
   { name: "Otros", href: "#" },
 ];
-
 const filters = [
   {
     id: "marca",
@@ -57,8 +57,8 @@ const filters = [
     ],
   },
   {
-    id: "transmision",
-    name: "Transmisión",
+    id: "trasmision",
+    name: "Trasmisión",
     options: [
       { value: "manual", label: "Manual", checked: false },
       { value: "automatico", label: "Automático", checked: false },
@@ -123,7 +123,7 @@ export default function Example() {
 
                     {/* Filters */}
                     <form className="mt-4 border-t border-gray-200">
-                      <h3 className="sr-only">Categorías</h3>
+                      <h3 className="sr-only">Categories</h3>
                       <ul
                         role="list"
                         className="px-2 py-3 font-medium text-gray-900"
@@ -138,7 +138,7 @@ export default function Example() {
                       </ul>
                       <Disclosure
                         as="div"
-                        key={12}
+                        key={14}
                         className="border-t border-gray-200 px-4 py-6"
                       >
                         {({ open }) => (
@@ -164,7 +164,10 @@ export default function Example() {
                               </Disclosure.Button>
                             </h3>
                             <Disclosure.Panel className="pt-6">
-                              <div className="space-y-6">
+                              <ul
+                                role="list"
+                                className="px-2 py-3 font-medium text-gray-900"
+                              >
                                 {remolques.map((subtipo) => (
                                   <li key={subtipo.name}>
                                     <a
@@ -175,7 +178,7 @@ export default function Example() {
                                     </a>
                                   </li>
                                 ))}
-                              </div>
+                              </ul>
                             </Disclosure.Panel>
                           </>
                         )}
@@ -333,6 +336,48 @@ export default function Example() {
                       </li>
                     ))}
                   </ul>
+                  <Disclosure
+                    as="div"
+                    key={14}
+                    className="border-b border-gray-200 py-6"
+                  >
+                    {({ open }) => (
+                      <>
+                        <h3 className="-my-3 flow-root">
+                          <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
+                            <span className="font-medium text-gray-900">
+                              Remolques
+                            </span>
+                            <span className="ml-6 flex items-center">
+                              {open ? (
+                                <MinusIcon
+                                  className="h-5 w-5"
+                                  aria-hidden="true"
+                                />
+                              ) : (
+                                <PlusIcon
+                                  className="h-5 w-5"
+                                  aria-hidden="true"
+                                />
+                              )}
+                            </span>
+                          </Disclosure.Button>
+                        </h3>
+                        <Disclosure.Panel className="pt-6">
+                          <ul
+                            role="list"
+                            className="space-y-4 pb-6 text-sm font-normal text-gray-900"
+                          >
+                            {remolques.map((subtipo) => (
+                              <li key={subtipo.name}>
+                                <a href={subtipo.href}>{subtipo.name}</a>
+                              </li>
+                            ))}
+                          </ul>
+                        </Disclosure.Panel>
+                      </>
+                    )}
+                  </Disclosure>
 
                   {filters.map((section) => (
                     <Disclosure

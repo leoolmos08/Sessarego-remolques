@@ -1,12 +1,13 @@
 import './App.css';
-import AppBar from './components/AppBar';
-import { BrowserRouter, Route, Routes} from "react-router-dom"
-import Contacto from './components/Contacto';
-import Financiacion from './components/Financiacion';
-import Vehiculos from './components/vehiculos/Vehiculos';
-import Footer2 from './components/Footer2';
-import DetalleVehiculoContainer from './components/vehiculos/DetalleVehiculoContainer';
 
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+
+import AppBar from './components/AppBar';
+import Contacto from './components/Contacto';
+import DetalleVehiculoContainer from './components/vehiculos/DetalleVehiculoContainer';
+import Financiacion from './components/Financiacion';
+import Footer2 from './components/Footer2';
+import Vehiculos from './components/vehiculos/Vehiculos';
 
 function App() {
   return (
