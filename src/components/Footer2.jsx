@@ -3,7 +3,7 @@ import React from 'react'
 export default function Footer2() {
   return (
     <div className='relative h-100 mt-30'>
-        <footer class="bg-white rounded-lg shadow dark:bg-gray-900 w-full inset-x-0 bottom-0 mt-auto">
+        <footer class="bg-white shadow dark:bg-gray-900 w-full inset-x-0 bottom-0 mt-auto">
             <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
                 <div class="sm:flex sm:items-center sm:justify-between">
                     <a href="#" class="flex items-center mb-4 sm:mb-0">

@@ -1,5 +1,5 @@
-import React from 'react'
 import { Carousel } from 'react-carousel-minimal';
+import React from 'react'
 
 export default function CarouselComponent() {
     const data = [
@@ -30,7 +30,7 @@ export default function CarouselComponent() {
         fontWeight: 'bold',
       }
       return (
-        <div className="App">
+        <div>
           <div>
             <div className='mt-20 pb-30' style={{
               padding: "0 20px"

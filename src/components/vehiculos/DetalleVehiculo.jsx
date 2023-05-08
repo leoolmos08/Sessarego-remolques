@@ -32,6 +32,10 @@ export default function DetalleVehiculo() {
             <dt className="text-sm font-medium leading-6 text-gray-900">Transmisión</dt>
             <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">AUTOMÁTICO</dd>
           </div>
+          <div className="px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt className="text-sm font-medium leading-6 text-gray-900">Descripción</dt>
+            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 break-all">lore</dd>
+          </div>
         </dl>
       </div>
       <a href="https://api.whatsapp.com/send?phone=543515609494&text=Hola%20Sessarego%20Remolques">
