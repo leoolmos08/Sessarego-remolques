@@ -1,23 +1,34 @@
-import React from 'react'
+import React from "react";
 
 export default function Financiacion() {
   //refactorizar este codigo
   return (
     <>
-    <div className='justify-center items-center m-20 h-[540px] flex-grow max-h-[540px]'>
-        <h5 className='text-lg font-medium text-center'>
+      <div className="justify-center items-center m-20 h-[540px] flex-grow min-h-[650px]">
+        <h2>¿Quienes somos?</h2>
         <p>
-            De acuerdo a las necesidades de nuestros clientes contamos con dos líneas de créditos: 
+          Somos más que una simple concesionaria de camiones. Somos un equipo
+          apasionado de expertos en vehículos comerciales dedicados a brindarte
+          soluciones de transporte confiables y eficientes. Con años de
+          experiencia en el mercado, nos hemos destacado por ofrecer la más
+          amplia variedad de camiones de alta calidad y un servicio excepcional
+          a nuestros clientes. Nuestro compromiso es proporcionarte las mejores
+          opciones de vehículos para satisfacer las necesidades específicas de
+          tu negocio. ¡Vení y conocé nuestro equipo, estamos aquí para ayudarte!
         </p>
+        <h4>Financiación</h4>
         <p>
-            Prendarios: Se gestiona a través de diferentes Bancos, mínimos requisitos para la adquisición. Los créditos tienen un plazo mínimo de 12 meses.
+          ¿Necesitas financiamiento para adquirir el camión de tus sueños? ¡No
+          te preocupes, estamos aquí para ayudarte! En Sessarego Remolques,
+          ofrecemos una amplia variedad de opciones de financiamiento para que
+          puedas obtener el vehículo que necesitas de manera fácil y accesible.
+          Con nuestro equipo de expertos financieros, te ayudaremos a encontrar
+          la mejor opción de financiamiento de acuerdo a tus necesidades y
+          presupuesto. No pierdas la oportunidad de tener el camión perfecto
+          para tu negocio, ¡contáctanos hoy y comienza a hacer tus sueños
+          realidad!
         </p>
-
-Personales: A sola firma y fácil de gestionar. El plazo mínimo es de 12 meses. En pesos.
-
-En ambos casos se gestiona la financiación hasta el 50% del valor de cualquier unidad que se encuentre en la Concesionaria, el saldo se realizará entregando cualquier método de pago, ya sea efectivo, cheques o vehículos.
-        </h5>
-    </div>
+      </div>
     </>
-  )
+  );
 }

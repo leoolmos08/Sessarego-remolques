@@ -10,7 +10,7 @@ export default function Contacto() {
   // falta vista mobile
   return (
     <>
-      <div className="flex flex-col sm:flex-row justify-around items-center mt-10 flex-grow h-screen min-h-[650px]">
+      <div className="flex flex-col sm:flex-row justify-around items-center mt-10 flex-grow h-screen min-h-[600px]">
         <div className="p-10">
           <h1 className="font-sans text-2xl font-bold pb-15 inline">
             Datos de contacto
