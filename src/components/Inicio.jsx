@@ -1,5 +1,17 @@
 import React from "react";
+import poster from "../assets/BannerIMG.png";
+import video from "../assets/BannerVideo.mp4";
 
 export default function Inicio() {
-  return <div>inico</div>;
+  return (
+    <div>
+      <video
+        src={video}
+        width={"100%"}
+        preload={true}
+        autoPlay={true}
+        poster={poster}
+      />
+    </div>
+  );
 }

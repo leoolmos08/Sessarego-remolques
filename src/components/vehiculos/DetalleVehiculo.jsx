@@ -1,5 +1,7 @@
+import BotonWhatsapp from "../BotonWhatsapp";
 import React from "react";
 
+//hacer un map a futuro
 export default function DetalleVehiculo() {
   return (
     <div className="sm:pt-24 pt-7 pb-10 sm:pl-10 h-auto min-h-[900px]">
@@ -10,7 +12,7 @@ export default function DetalleVehiculo() {
       </div>
       <div className="mt-6 border-t border-gray-100">
         <dl className="divide-y divide-gray-100">
-          <div className="px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <div className="px-4 py-3 max-sm:py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 text-gray-900">
               Marca
             </dt>
@@ -18,7 +20,7 @@ export default function DetalleVehiculo() {
               IVECO
             </dd>
           </div>
-          <div className="px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <div className="px-4 py-3 max-sm:py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 text-gray-900">
               Modelo
             </dt>
@@ -26,7 +28,7 @@ export default function DetalleVehiculo() {
               CURSOR
             </dd>
           </div>
-          <div className="px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <div className="px-4 py-3 max-sm:py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 text-gray-900">
               Tipo
             </dt>
@@ -34,7 +36,7 @@ export default function DetalleVehiculo() {
               Tractor
             </dd>
           </div>
-          <div className="px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <div className="px-4 py-3 max-sm:py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 text-gray-900">
               Kilómetros
             </dt>
@@ -42,7 +44,7 @@ export default function DetalleVehiculo() {
               80.000 KM
             </dd>
           </div>
-          <div className="px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <div className="px-4 py-3 max-sm:py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 text-gray-900">
               Combustible
             </dt>
@@ -50,13 +52,13 @@ export default function DetalleVehiculo() {
               GNC
             </dd>
           </div>
-          <div className="px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <div className="px-4 py-3 max-sm:py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 text-gray-900">Año</dt>
             <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
               2022
             </dd>
           </div>
-          <div className="px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <div className="px-4 py-3 max-sm:py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 text-gray-900">
               Transmisión
             </dt>
@@ -64,11 +66,11 @@ export default function DetalleVehiculo() {
               AUTOMÁTICO
             </dd>
           </div>
-          <div className="px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <div className="px-4 py-3 max-sm:py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 text-gray-900">
               Descripción
             </dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 max-w-[200px] ">
+            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 max-w-[200px] max-sm:max-w-[350px] ">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
               minus a consequatur consequuntur voluptatum possimus sequi,
               officiis nobis repellat libero explicabo eius omnis totam quasi
@@ -77,16 +79,7 @@ export default function DetalleVehiculo() {
           </div>
         </dl>
       </div>
-      <a href="https://api.whatsapp.com/send?phone=543515609494&text=Hola%20Sessarego%20Remolques">
-        <div className="mt-10 py-2 rounded-lg flex flex-row items-center justify-around shadow-md shadow-black hover:bg-green-500 hover:shadow-green-500">
-          <img
-            src="https://www.nuevoceibo.com.ar/whatsapp.png"
-            alt="whatsapp"
-            className="h-8"
-          />
-          <p className="hover:text-white">CONSULTAR POR WHATSAPP</p>
-        </div>
-      </a>
+      <BotonWhatsapp />
     </div>
   );
 }

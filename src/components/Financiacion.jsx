@@ -3,10 +3,10 @@ import React from "react";
 export default function Financiacion() {
   //refactorizar este codigo
   return (
-    <>
-      <div className="justify-center items-center m-20 h-[540px] flex-grow min-h-[650px]">
-        <h2>¿Quienes somos?</h2>
-        <p>
+    <div className="bg-truck object-cover  min-h-[750px] pt-20">
+      <div className="justify-center items-center flex-grow  bg-white opacity-80 rounded mx-20 p-5">
+        <h2 className="text-xl font-bold pb-5">¿Quienes somos?</h2>
+        <p className="pb-5 font-medium">
           Somos más que una simple concesionaria de camiones. Somos un equipo
           apasionado de expertos en vehículos comerciales dedicados a brindarte
           soluciones de transporte confiables y eficientes. Con años de
@@ -16,8 +16,8 @@ export default function Financiacion() {
           opciones de vehículos para satisfacer las necesidades específicas de
           tu negocio. ¡Vení y conocé nuestro equipo, estamos aquí para ayudarte!
         </p>
-        <h4>Financiación</h4>
-        <p>
+        <h4 className="text-xl pb-5 font-bold">Financiación</h4>
+        <p className="font-medium">
           ¿Necesitas financiamiento para adquirir el camión de tus sueños? ¡No
           te preocupes, estamos aquí para ayudarte! En Sessarego Remolques,
           ofrecemos una amplia variedad de opciones de financiamiento para que
@@ -29,6 +29,6 @@ export default function Financiacion() {
           realidad!
         </p>
       </div>
-    </>
+    </div>
   );
 }
