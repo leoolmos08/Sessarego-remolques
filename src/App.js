@@ -1,6 +1,7 @@
 import './App.css';
 
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+import React, {useEffect, useState} from 'react';
 
 import AppBar from './components/AppBar';
 import Contacto from './components/Contacto';
@@ -9,8 +10,20 @@ import Financiacion from './components/Financiacion';
 import Footer2 from './components/Footer2';
 import Inicio from './components/Inicio';
 import Vehiculos from './components/vehiculos/Vehiculos';
+import { getProductsApi } from "./api/product"
 
 function App() {
+  const [products, setProducts] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      const response = await getProductsApi();
+      setProducts(response);
+    })();
+  }, []);
+
+  console.log(products);
+
   return (
     <BrowserRouter>
       <AppBar />

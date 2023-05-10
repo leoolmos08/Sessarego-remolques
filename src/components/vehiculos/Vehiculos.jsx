@@ -8,7 +8,7 @@ import {
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 
-import ListaVehiculos from "./ListaVehiculos";
+import ListaVehiculosContainer from "./ListaVehiculosContainer";
 import Pagination from "./Pagination";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
@@ -440,7 +440,7 @@ export default function Example() {
 
                 {/* Product grid */}
                 <div className="lg:col-span-3">
-                  <ListaVehiculos />
+                  <ListaVehiculosContainer />
                   <Pagination />
                 </div>
               </div>
