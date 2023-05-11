@@ -8,7 +8,7 @@ export default function Inicio() {
       <video
         src={video}
         width={"100%"}
-        preload={true}
+        preload
         autoPlay={true}
         poster={poster}
       />

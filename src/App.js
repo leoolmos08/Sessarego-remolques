@@ -10,20 +10,8 @@ import Financiacion from './components/Financiacion';
 import Footer2 from './components/Footer2';
 import Inicio from './components/Inicio';
 import Vehiculos from './components/vehiculos/Vehiculos';
-import { getProductsApi } from "./api/product"
 
 function App() {
-  const [products, setProducts] = useState(null);
-
-  useEffect(() => {
-    (async () => {
-      const response = await getProductsApi();
-      setProducts(response);
-    })();
-  }, []);
-
-  console.log(products);
-
   return (
     <BrowserRouter>
       <AppBar />

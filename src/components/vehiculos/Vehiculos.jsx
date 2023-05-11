@@ -1,12 +1,13 @@
 import {
   ChevronDownIcon,
   FunnelIcon,
+  MagnifyingGlassIcon,
   MinusIcon,
   PlusIcon,
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 import ListaVehiculosContainer from "./ListaVehiculosContainer";
 import Pagination from "./Pagination";
@@ -17,12 +18,12 @@ const sortOptions = [
   { name: "Precio: más alto a más bajo", href: "#", current: false },
 ];
 const subCategories = [
-  { name: "Todos", href: "#" },
-  { name: "Camiones", href: "#" },
-  { name: "Remolques", href: "#" },
-  { name: "Pick-up", href: "#" },
-  { name: "Utilitario", href: "#" },
-  { name: "Maquinaria Vial", href: "#" },
+  { name: "Todos", value: "todos" },
+  { name: "Camiones", value: "camion" },
+  { name: "Remolques", value: "remolque" },
+  { name: "Pick-up", value: "pick-up" },
+  { name: "Utilitario", value: "utilitario" },
+  { name: "Maquinaria Vial", value: "maquinaria-vial" },
 ];
 
 const remolques = [
@@ -39,29 +40,29 @@ const filters = [
     id: "marca",
     name: "Marca",
     options: [
-      { value: "volkswagen", label: "Volkswagen", checked: true },
-      { value: "ford", label: "Ford", checked: false },
-      { value: "fiat", label: "Fiat", checked: false },
-      { value: "scania", label: "Scania", checked: false },
-      { value: "mercedes-benz", label: "Mercedes Benz", checked: false },
-      { value: "iveco", label: "Iveco", checked: false },
+      { value: "marca=VOLKSWAGEN", label: "Volkswagen", checked: false },
+      { value: "marca=FORD", label: "Ford", checked: false },
+      { value: "marca=FIAT", label: "Fiat", checked: false },
+      { value: "marca=SCANIA", label: "Scania", checked: false },
+      { value: "marca=mercedes-benz", label: "Mercedes Benz", checked: false },
+      { value: "marca=IVECO", label: "Iveco", checked: false },
     ],
   },
   {
     id: "combustible",
     name: "Combustible",
     options: [
-      { value: "nafta", label: "Nafta", checked: false },
-      { value: "diesel", label: "Diesel", checked: false },
-      { value: "GNC", label: "GNC", checked: false },
+      { value: "combustible=NAFTA", label: "Nafta", checked: false },
+      { value: "combustible=DIESEL", label: "Diesel", checked: false },
+      { value: "combustible=GNC", label: "GNC", checked: false },
     ],
   },
   {
-    id: "trasmision",
-    name: "Trasmisión",
+    id: "transmision",
+    name: "Transmisión",
     options: [
-      { value: "manual", label: "Manual", checked: false },
-      { value: "automatico", label: "Automático", checked: false },
+      { value: "transmision=MANUAL", label: "Manual", checked: false },
+      { value: "transmision=AUTOMATICO", label: "Automático", checked: false },
     ],
   },
 ];
@@ -72,6 +73,27 @@ function classNames(...classes) {
 
 export default function Example() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [filter, setFilter] = useState("todos");
+  const [otherFilters, setOtherFilters] = useState([]);
+  const [otherFiltersString, setOtherFiltersString] = useState("");
+
+  useEffect(() => {
+    setFilter("todos");
+    setOtherFilters([]);
+  }, []);
+
+  useEffect(() => {
+    setOtherFiltersString(otherFilters.join("&"));
+  }, [otherFilters]);
+
+  const handleCheckboxChange = (event) => {
+    const checkboxValue = event.target.value;
+    if (event.target.checked) {
+      setOtherFilters([...otherFilters, checkboxValue]);
+    } else {
+      setOtherFilters(otherFilters.filter((value) => value !== checkboxValue));
+    }
+  };
 
   return (
     <>
@@ -129,10 +151,8 @@ export default function Example() {
                         className="px-2 py-3 font-medium text-gray-900"
                       >
                         {subCategories.map((category) => (
-                          <li key={category.name}>
-                            <a href={category.href} className="block px-2 py-3">
-                              {category.name}
-                            </a>
+                          <li key={category.name} className="block px-2 py-3">
+                            {category.name}
                           </li>
                         ))}
                       </ul>
@@ -331,8 +351,11 @@ export default function Example() {
                     className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900"
                   >
                     {subCategories.map((category) => (
-                      <li key={category.name}>
-                        <a href={category.href}>{category.name}</a>
+                      <li
+                        key={category.name}
+                        onClick={() => setFilter(category.value)}
+                      >
+                        {category.name}
                       </li>
                     ))}
                   </ul>
@@ -421,6 +444,7 @@ export default function Example() {
                                     type="checkbox"
                                     defaultChecked={option.checked}
                                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                    onChange={handleCheckboxChange}
                                   />
                                   <label
                                     htmlFor={`filter-${section.id}-${optionIdx}`}
@@ -440,7 +464,10 @@ export default function Example() {
 
                 {/* Product grid */}
                 <div className="lg:col-span-3">
-                  <ListaVehiculosContainer />
+                  <ListaVehiculosContainer
+                    filter={filter}
+                    otherFiltersString={otherFiltersString}
+                  />
                   <Pagination />
                 </div>
               </div>
