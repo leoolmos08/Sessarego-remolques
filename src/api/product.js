@@ -11,18 +11,7 @@ export async function getLastProductsApi(limit = 3){
         return null
     }
 }
-export async function getVehicleTypeApi(filter){
-    try {
-        const url = `${API_URL}/products?vehicleType=${filter}`
-        const response = await fetch(url);
-        const result = response.json();
-        return result;
-    } catch (error) {
-        console.log(error);
-        return null 
-    }
-}
-export async function getOthersFiltersApi(filter){
+export async function getFilteredVehiclessApi(filter){
     try {
         const url = `${API_URL}/products?${filter}`
         const response = await fetch(url);

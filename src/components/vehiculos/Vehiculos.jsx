@@ -17,25 +17,39 @@ const sortOptions = [
   { name: "Precio: más bajo a más alto", href: "#", current: false },
   { name: "Precio: más alto a más bajo", href: "#", current: false },
 ];
-const subCategories = [
-  { name: "Todos", value: "todos" },
-  { name: "Camiones", value: "camion" },
-  { name: "Remolques", value: "remolque" },
-  { name: "Pick-up", value: "pick-up" },
-  { name: "Utilitario", value: "utilitario" },
-  { name: "Maquinaria Vial", value: "maquinaria-vial" },
-];
-
-const remolques = [
-  { name: "Acoplados", href: "#" },
-  { name: "Semi Remolques", href: "#" },
-  { name: "Carrocerías", href: "#" },
-  { name: "Bateas", href: "#" },
-  { name: "Carretones", href: "#" },
-  { name: "Tolvas", href: "#" },
-  { name: "Otros", href: "#" },
-];
 const filters = [
+  {
+    id: "subCategories",
+    name: "Vehículos",
+    options: [
+      { label: "Camiones", value: "vehicleType=camion", checked: false },
+      { label: "Remolques", value: "vehicleType=remolque", checked: false },
+      { label: "Pick-up", value: "vehicleType=pick-up", checked: false },
+      { label: "Utilitario", value: "vehicleType=utilitario", checked: false },
+      {
+        label: "Maquinaria Vial",
+        value: "vehicleType=maquinaria-vial",
+        checked: false,
+      },
+    ],
+  },
+  {
+    id: "remolques",
+    name: "Remolques",
+    options: [
+      { label: "Acoplados", value: "vehicleType=ACOPLADO", checked: false },
+      {
+        label: "Semi Remolques",
+        value: "vehicleType=SEMI-REMOLQUE",
+        checked: false,
+      },
+      { label: "Carrocerías", value: "vehicleType=CARROCERIA", checked: false },
+      { label: "Bateas", value: "vehicleType=BATEA", checked: false },
+      { label: "Carretones", value: "vehicleType=CARRETON", checked: false },
+      { label: "Tolvas", value: "vehicleType=TOLVA", checked: false },
+      { label: "Otros", value: "vehicleType=OTROS", checked: false },
+    ],
+  },
   {
     id: "marca",
     name: "Marca",
@@ -145,64 +159,6 @@ export default function Example() {
 
                     {/* Filters */}
                     <form className="mt-4 border-t border-gray-200">
-                      <h3 className="sr-only">Categories</h3>
-                      <ul
-                        role="list"
-                        className="px-2 py-3 font-medium text-gray-900"
-                      >
-                        {subCategories.map((category) => (
-                          <li key={category.name} className="block px-2 py-3">
-                            {category.name}
-                          </li>
-                        ))}
-                      </ul>
-                      <Disclosure
-                        as="div"
-                        key={14}
-                        className="border-t border-gray-200 px-4 py-6"
-                      >
-                        {({ open }) => (
-                          <>
-                            <h3 className="-mx-2 -my-3 flow-root">
-                              <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
-                                <span className="font-medium text-gray-900">
-                                  Remolques
-                                </span>
-                                <span className="ml-6 flex items-center">
-                                  {open ? (
-                                    <MinusIcon
-                                      className="h-5 w-5"
-                                      aria-hidden="true"
-                                    />
-                                  ) : (
-                                    <PlusIcon
-                                      className="h-5 w-5"
-                                      aria-hidden="true"
-                                    />
-                                  )}
-                                </span>
-                              </Disclosure.Button>
-                            </h3>
-                            <Disclosure.Panel className="pt-6">
-                              <ul
-                                role="list"
-                                className="px-2 py-3 font-medium text-gray-900"
-                              >
-                                {remolques.map((subtipo) => (
-                                  <li key={subtipo.name}>
-                                    <a
-                                      href={subtipo.href}
-                                      className="block px-2 py-3"
-                                    >
-                                      {subtipo.name}
-                                    </a>
-                                  </li>
-                                ))}
-                              </ul>
-                            </Disclosure.Panel>
-                          </>
-                        )}
-                      </Disclosure>
                       {filters.map((section) => (
                         <Disclosure
                           as="div"
@@ -345,63 +301,6 @@ export default function Example() {
               <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
                 {/* Filters */}
                 <form className="hidden lg:block">
-                  <h3 className="sr-only">Categories</h3>
-                  <ul
-                    role="list"
-                    className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900"
-                  >
-                    {subCategories.map((category) => (
-                      <li
-                        key={category.name}
-                        onClick={() => setFilter(category.value)}
-                      >
-                        {category.name}
-                      </li>
-                    ))}
-                  </ul>
-                  <Disclosure
-                    as="div"
-                    key={14}
-                    className="border-b border-gray-200 py-6"
-                  >
-                    {({ open }) => (
-                      <>
-                        <h3 className="-my-3 flow-root">
-                          <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
-                            <span className="font-medium text-gray-900">
-                              Remolques
-                            </span>
-                            <span className="ml-6 flex items-center">
-                              {open ? (
-                                <MinusIcon
-                                  className="h-5 w-5"
-                                  aria-hidden="true"
-                                />
-                              ) : (
-                                <PlusIcon
-                                  className="h-5 w-5"
-                                  aria-hidden="true"
-                                />
-                              )}
-                            </span>
-                          </Disclosure.Button>
-                        </h3>
-                        <Disclosure.Panel className="pt-6">
-                          <ul
-                            role="list"
-                            className="space-y-4 pb-6 text-sm font-normal text-gray-900"
-                          >
-                            {remolques.map((subtipo) => (
-                              <li key={subtipo.name}>
-                                <a href={subtipo.href}>{subtipo.name}</a>
-                              </li>
-                            ))}
-                          </ul>
-                        </Disclosure.Panel>
-                      </>
-                    )}
-                  </Disclosure>
-
                   {filters.map((section) => (
                     <Disclosure
                       as="div"
@@ -468,7 +367,6 @@ export default function Example() {
                     filter={filter}
                     otherFiltersString={otherFiltersString}
                   />
-                  <Pagination />
                 </div>
               </div>
             </section>
