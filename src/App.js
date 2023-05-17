@@ -20,7 +20,7 @@ function App() {
         <Route path='/contacto' element={<Contacto />} />
         <Route path='/financiacion' element={<Financiacion />} />
         <Route path='/vehiculos' element={<Vehiculos />} />
-        <Route path='/vehiculos/iveco-cursor' element={<DetalleVehiculoContainer />}/>
+        <Route path='/vehiculos/:idVehicle' element={<DetalleVehiculoContainer />}/>
       </Routes>
       <Footer2 />
     </BrowserRouter>

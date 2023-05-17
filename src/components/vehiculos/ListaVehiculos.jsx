@@ -12,10 +12,14 @@ export default function ListaVehiculos({ vehiclesPerPage }) {
       <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8">
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
           {vehiclesPerPage().map((vehicle) => (
-            <a key={vehicle.id} href={vehicle.id} className="group">
+            <a
+              key={vehicle.id}
+              href={`vehiculos/${vehicle.id}`}
+              className="group"
+            >
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:h-48 xl:w-48">
                 <img
-                  src={`${API_URL}${vehicle.main_image.url}`}
+                  src={`${API_URL}${vehicle.images[0].url}`}
                   alt={vehicle.title}
                   className="h-full w-full object-cover object-center group-hover:opacity-75"
                 />

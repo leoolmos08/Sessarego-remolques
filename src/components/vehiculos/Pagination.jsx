@@ -7,9 +7,6 @@ export default function Pagination({
   totalPages,
 }) {
   const [selected, setSelected] = useState(1);
-  console.log(selected);
-  console.log(currentPage);
-
   const handlePress = (i) => {
     setCurrentPage(i);
     setSelected(i);
