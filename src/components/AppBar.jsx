@@ -4,7 +4,7 @@ import { Disclosure } from "@headlessui/react";
 import { Link } from "react-router-dom";
 
 const navigation = [
-  { name: "Inicio", href: "#", current: true, link: "/" },
+  { name: "Inicio", href: "#", current: false, link: "/" },
   { name: "Vehiculos", href: "#", current: false, link: "/vehiculos" },
   { name: "Financiacion", href: "#", current: false, link: "/financiacion" },
   { name: "Contacto", href: "#", current: false, link: "/contacto" },
@@ -51,7 +51,6 @@ export default function AppBar() {
                       <Link to={item.link}>
                         <a
                           key={item.name}
-                          href={item.href}
                           className={classNames(
                             item.current
                               ? "bg-gray-900 text-white"

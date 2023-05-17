@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React from "react";
 
 export default function Footer2() {
@@ -18,24 +19,18 @@ export default function Footer2() {
             </a>
             <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
               <li>
-                <a href="#" class="mr-4 hover:underline md:mr-6 ">
-                  About
-                </a>
+                <Link to={"/contacto"}>
+                  <a href="#" class="mr-4 hover:underline md:mr-6 ">
+                    Contacto
+                  </a>
+                </Link>
               </li>
               <li>
-                <a href="#" class="mr-4 hover:underline md:mr-6">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#" class="mr-4 hover:underline md:mr-6 ">
-                  Licensing
-                </a>
-              </li>
-              <li>
-                <a href="#" class="hover:underline">
-                  Contact
-                </a>
+                <Link to={"/financiacion"}>
+                  <a href="#" class="hover:underline">
+                    Financiación
+                  </a>
+                </Link>
               </li>
             </ul>
           </div>

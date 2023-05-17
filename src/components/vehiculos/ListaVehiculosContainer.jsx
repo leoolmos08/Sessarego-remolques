@@ -5,8 +5,10 @@ import ListaVehiculos from "./ListaVehiculos";
 import Loading from "../vehiculos/Loading";
 import Pagination from "./Pagination";
 
-const itemsPerPage = 3;
-export default function ListaVehiculosContainer({ otherFiltersString }) {
+export default function ListaVehiculosContainer({
+  otherFiltersString,
+  itemsPerPage,
+}) {
   const [filteredVehicles, setFilteredVehicles] = useState(null);
 
   const [currentPage, setCurrentPage] = useState(1);

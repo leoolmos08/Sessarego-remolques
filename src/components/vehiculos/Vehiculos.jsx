@@ -14,8 +14,8 @@ import Pagination from "./Pagination";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
 const sortOptions = [
-  { name: "Precio: más bajo a más alto", href: "#", current: false },
-  { name: "Precio: más alto a más bajo", href: "#", current: false },
+  { name: "6 elementos por página", value: 6, current: false },
+  { name: "12 elementos por página", value: 12, current: false },
 ];
 const filters = [
   {
@@ -90,6 +90,7 @@ export default function Example() {
   const [filter, setFilter] = useState("todos");
   const [otherFilters, setOtherFilters] = useState([]);
   const [otherFiltersString, setOtherFiltersString] = useState("");
+  const [itemsPerPage, setItemsPerPage] = useState(6);
 
   useEffect(() => {
     setFilter("todos");
@@ -201,6 +202,7 @@ export default function Example() {
                                         type="checkbox"
                                         defaultChecked={option.checked}
                                         className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                        onChange={handleCheckboxChange}
                                       />
                                       <label
                                         htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
@@ -233,7 +235,7 @@ export default function Example() {
                 <Menu as="div" className="relative inline-block text-left">
                   <div>
                     <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
-                      Ordenar
+                      Elementos p/pág.
                       <ChevronDownIcon
                         className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                         aria-hidden="true"
@@ -255,8 +257,8 @@ export default function Example() {
                         {sortOptions.map((option) => (
                           <Menu.Item key={option.name}>
                             {({ active }) => (
-                              <a
-                                href={option.href}
+                              <div
+                                onClick={() => setItemsPerPage(option.value)}
                                 className={classNames(
                                   option.current
                                     ? "font-medium text-gray-900"
@@ -266,7 +268,7 @@ export default function Example() {
                                 )}
                               >
                                 {option.name}
-                              </a>
+                              </div>
                             )}
                           </Menu.Item>
                         ))}
@@ -364,8 +366,8 @@ export default function Example() {
                 {/* Product grid */}
                 <div className="lg:col-span-3">
                   <ListaVehiculosContainer
-                    filter={filter}
                     otherFiltersString={otherFiltersString}
+                    itemsPerPage={itemsPerPage}
                   />
                 </div>
               </div>
