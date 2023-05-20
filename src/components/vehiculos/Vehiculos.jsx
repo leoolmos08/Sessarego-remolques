@@ -1,7 +1,6 @@
 import {
   ChevronDownIcon,
   FunnelIcon,
-  MagnifyingGlassIcon,
   MinusIcon,
   PlusIcon,
   Squares2X2Icon,
@@ -10,7 +9,6 @@ import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
 
 import ListaVehiculosContainer from "./ListaVehiculosContainer";
-import Pagination from "./Pagination";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
 const sortOptions = [
@@ -87,13 +85,11 @@ function classNames(...classes) {
 
 export default function Example() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  const [filter, setFilter] = useState("todos");
   const [otherFilters, setOtherFilters] = useState([]);
   const [otherFiltersString, setOtherFiltersString] = useState("");
   const [itemsPerPage, setItemsPerPage] = useState(6);
 
   useEffect(() => {
-    setFilter("todos");
     setOtherFilters([]);
   }, []);
 
