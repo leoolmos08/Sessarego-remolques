@@ -11,7 +11,9 @@ export default function Inicio() {
         preload
         autoPlay={true}
         poster={poster}
+        className="max-[640px]:hidden"
       />
+      <img src={require("../assets/inicio-mobile.png")} className="lg:hidden" />
     </div>
   );
 }
