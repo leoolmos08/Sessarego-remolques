@@ -14,7 +14,7 @@ export default function ListaVehiculos({ vehiclesPerPage }) {
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
           {vehiclesPerPage().map((vehicle) => (
             <div key={vehicle.id} className="group">
-              <Link to={`/vehiculo/${vehicle.id}`}>
+              <Link to={`/vehiculos/${vehicle.id}`}>
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:h-48 xl:w-48">
                   <img
                     src={`${API_URL}${vehicle.images[0].url}`}

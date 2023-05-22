@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom";
 export default function DetalleVehiculoContainer() {
   const [vehicle, setVehicle] = useState(null);
   const { idVehicle } = useParams();
+  console.log(idVehicle);
 
   useEffect(() => {
     (async () => {
