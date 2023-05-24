@@ -1,9 +1,7 @@
 import {
   ChevronDownIcon,
-  FunnelIcon,
   MinusIcon,
   PlusIcon,
-  Squares2X2Icon,
 } from "@heroicons/react/20/solid";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
@@ -12,8 +10,8 @@ import ListaVehiculosContainer from "./ListaVehiculosContainer";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
 const sortOptions = [
-  { name: "6 elementos por página", value: 6, current: false },
-  { name: "12 elementos por página", value: 12, current: false },
+  { name: "Mostrar 6 elementos", value: 6, current: false },
+  { name: "Mostrar 12 elementos", value: 12, current: false },
 ];
 const filters = [
   {
@@ -56,8 +54,11 @@ const filters = [
       { value: "marca=FORD", label: "Ford", checked: false },
       { value: "marca=FIAT", label: "Fiat", checked: false },
       { value: "marca=SCANIA", label: "Scania", checked: false },
-      { value: "marca=mercedes-benz", label: "Mercedes Benz", checked: false },
+      { value: "marca=MERCEDES-BENZ", label: "Mercedes Benz", checked: false },
       { value: "marca=IVECO", label: "Iveco", checked: false },
+      { value: "marca=TOYOTA", label: "Toyota", checked: false },
+      { value: "marca=VOLVO", label: "Volvo", checked: false },
+      { value: "marca=OTROS", label: "Otros", checked: false },
     ],
   },
   {
@@ -231,7 +232,7 @@ export default function Example() {
                 <Menu as="div" className="relative inline-block text-left">
                   <div>
                     <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
-                      Elementos p/pág.
+                      Mostrar
                       <ChevronDownIcon
                         className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                         aria-hidden="true"
@@ -272,21 +273,15 @@ export default function Example() {
                     </Menu.Items>
                   </Transition>
                 </Menu>
-
-                <button
-                  type="button"
-                  className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
-                >
-                  <span className="sr-only">View grid</span>
-                  <Squares2X2Icon className="h-5 w-5" aria-hidden="true" />
-                </button>
                 <button
                   type="button"
                   className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
                   onClick={() => setMobileFiltersOpen(true)}
                 >
                   <span className="sr-only">Filters</span>
-                  <FunnelIcon className="h-5 w-5" aria-hidden="true" />
+                  <h2 className="text-sm font-medium text-gray-700 hover:text-gray-900">
+                    Categorías
+                  </h2>
                 </button>
               </div>
             </div>

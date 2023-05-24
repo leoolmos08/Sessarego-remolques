@@ -1,6 +1,6 @@
 import React from "react";
-import poster from "../assets/BannerIMG.png";
-import video from "../assets/BannerVideo.mp4";
+import poster from "../assets/banner-inicio-desktop.png";
+import video from "../assets/banner-inicio-video.mp4";
 
 export default function Inicio() {
   return (
@@ -13,7 +13,10 @@ export default function Inicio() {
         poster={poster}
         className="max-[640px]:hidden"
       />
-      <img src={require("../assets/inicio-mobile.png")} className="lg:hidden" />
+      <img
+        src={require("../assets/banner-inicio .png")}
+        className="lg:hidden"
+      />
     </div>
   );
 }

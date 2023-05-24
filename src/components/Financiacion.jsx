@@ -3,8 +3,8 @@ import React from "react";
 export default function Financiacion() {
   //refactorizar este codigo
   return (
-    <div className="bg-truck object-cover  min-h-[750px] pt-20">
-      <div className="justify-center items-center flex-grow  bg-white opacity-80 rounded mx-20 p-5">
+    <div className="bg-truck object-cover  min-h-[750px] pt-10 lg:pt-20 pb-5">
+      <div className="justify-center items-center flex-grow  bg-white opacity-80 rounded mx-5 lg:mx-20 p-5">
         <h2 className="text-xl font-bold pb-5">¿Quienes somos?</h2>
         <p className="pb-5 font-medium">
           Somos más que una simple concesionaria de camiones. Somos un equipo
