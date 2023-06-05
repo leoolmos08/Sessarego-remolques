@@ -13,7 +13,7 @@ export default function Footer2() {
                 class="h-8 mr-3"
                 alt="Flowbite Logo"
               />
-              <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+              <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">
                 Sessarego Remolques S.A
               </span>
             </a>

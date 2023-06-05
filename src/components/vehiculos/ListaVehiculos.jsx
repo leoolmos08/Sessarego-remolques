@@ -33,7 +33,7 @@ export default function ListaVehiculos({ vehiclesPerPage }) {
                 <div className="flex flex-row">
                   <TruckIcon className="w-5" />
                   <p className="text-sm pl-3 font-light">
-                    {vehicle.kilometros}
+                    {vehicle.kilometros} KM
                   </p>
                 </div>
                 <div className="flex flex-row">
