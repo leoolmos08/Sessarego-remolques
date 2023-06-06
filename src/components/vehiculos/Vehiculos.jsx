@@ -18,13 +18,13 @@ const filters = [
     id: "subCategories",
     name: "Vehículos",
     options: [
-      { label: "Camiones", value: "vehicleType=camion", checked: false },
-      { label: "Remolques", value: "vehicleType=remolque", checked: false },
-      { label: "Pick-up", value: "vehicleType=pick-up", checked: false },
-      { label: "Utilitario", value: "vehicleType=utilitario", checked: false },
+      { label: "Camiones", value: "vehicleType=CAMION", checked: false },
+      { label: "Remolques", value: "vehicleType=REMOLQUE", checked: false },
+      { label: "Pick-up", value: "vehicleType=PICK-UP", checked: false },
+      { label: "Utilitario", value: "vehicleType=UTILITARIO", checked: false },
       {
         label: "Maquinaria Vial",
-        value: "vehicleType=maquinaria-vial",
+        value: "vehicleType=MAQUINARIA-VIAL",
         checked: false,
       },
     ],
@@ -86,7 +86,7 @@ function classNames(...classes) {
 
 export default function Example() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  const [otherFilters, setOtherFilters] = useState([]);
+  const [otherFilters, setOtherFilters] = useState(["_sort=priority:DESC"]);
   const [otherFiltersString, setOtherFiltersString] = useState("");
   const [itemsPerPage, setItemsPerPage] = useState(6);
 

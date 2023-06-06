@@ -5,15 +5,25 @@ import { Carousel } from "react-carousel-minimal";
 import LoadingCarousel from "./LoadingCarousel";
 
 export default function CarouselComponent({ vehicle }) {
-  const { images } = vehicle;
+  const { images, imagesUrl } = vehicle;
   let data = [];
 
-  for (let index = 0; index < images.length; index++) {
-    const element = {
-      image: `${API_URL}${images[index].url}`,
-      caption: "",
-    };
-    data.push(element);
+  if (images.length > 0) {
+    for (let index = 0; index < images.length; index++) {
+      const element = {
+        image: `${API_URL}${images[index].url}`,
+        caption: "",
+      };
+      data.push(element);
+    }
+  } else {
+    for (let index = 0; index < imagesUrl.length; index++) {
+      const element = {
+        image: imagesUrl[index],
+        caption: "",
+      };
+      data.push(element);
+    }
   }
 
   const captionStyle = {

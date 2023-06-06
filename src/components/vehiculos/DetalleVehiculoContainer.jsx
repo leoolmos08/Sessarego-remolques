@@ -9,7 +9,6 @@ import { useParams } from "react-router-dom";
 export default function DetalleVehiculoContainer() {
   const [vehicle, setVehicle] = useState(null);
   const { idVehicle } = useParams();
-  console.log(idVehicle);
 
   useEffect(() => {
     (async () => {
@@ -17,6 +16,7 @@ export default function DetalleVehiculoContainer() {
       const {
         title,
         images,
+        imagesUrl,
         price,
         marca,
         modelo,
@@ -30,6 +30,7 @@ export default function DetalleVehiculoContainer() {
       let item = {
         title,
         images,
+        imagesUrl,
         price,
         marca,
         modelo,

@@ -16,7 +16,8 @@ export default function ListaVehiculosContainer({
   const endIndex = startIndex + itemsPerPage;
 
   const totalPages = Math.ceil(filteredVehicles?.length / itemsPerPage);
-
+  console.log(otherFiltersString);
+  console.log("filtered", filteredVehicles);
   //filtros
   useEffect(() => {
     (async () => {

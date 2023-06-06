@@ -16,11 +16,19 @@ export default function ListaVehiculos({ vehiclesPerPage }) {
             <div key={vehicle.id} className="group">
               <Link to={`/vehiculos/${vehicle.id}`}>
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:h-48 xl:w-48">
-                  <img
-                    src={`${API_URL}${vehicle.images[0].url}`}
-                    alt={vehicle.title}
-                    className="h-full w-full object-cover object-center group-hover:opacity-75"
-                  />
+                  {vehicle.images.length > 0 ? (
+                    <img
+                      src={`${API_URL}${vehicle.images[0].url}`}
+                      alt={vehicle.title}
+                      className="h-full w-full object-cover object-center group-hover:opacity-75"
+                    />
+                  ) : (
+                    <img
+                      src={vehicle.imagesUrl[0]}
+                      alt={vehicle.title}
+                      className="h-full w-full object-cover object-center group-hover:opacity-75"
+                    />
+                  )}
                 </div>
                 <h3 className="mt-4 text-xl font-semibold">{vehicle.title}</h3>
                 <p className="mt-1 text-lg font-medium text-green-900">

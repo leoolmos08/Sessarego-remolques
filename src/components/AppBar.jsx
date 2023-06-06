@@ -75,7 +75,7 @@ export default function AppBar() {
                   <MapPinIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
                 <p className="font-normal text-sm text-gray-300">
-                  Ruta 19 km. 33, Córdoba
+                  Ruta 19 km. 3,33 Córdoba
                 </p>
               </div>
             </div>
