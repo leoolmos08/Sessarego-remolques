@@ -8,11 +8,14 @@ import { API_URL } from "../../utils/constants";
 import { Link } from "react-router-dom";
 
 export default function ListaVehiculos({ vehiclesPerPage }) {
+  const vehicles = vehiclesPerPage();
+  const vehiclesSort = vehicles.sort((a, b) => b.priority - a.priority);
+  console.log("ordenados", vehiclesSort);
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8">
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
-          {vehiclesPerPage().map((vehicle) => (
+          {vehiclesSort.map((vehicle) => (
             <div key={vehicle.id} className="group">
               <Link to={`/vehiculos/${vehicle.id}`}>
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:h-48 xl:w-48">
