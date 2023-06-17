@@ -1,4 +1,4 @@
-import { Bars3Icon, MapPinIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { MapPinIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 import { Disclosure } from "@headlessui/react";
 import { Link } from "react-router-dom";
@@ -28,8 +28,9 @@ export default function AppBar() {
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
                   ) : (
-                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                    <h6>Menú</h6>
                   )}
+                  {/*<Bars3Icon className="block h-6 w-6" aria-hidden="true" />*/}
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
