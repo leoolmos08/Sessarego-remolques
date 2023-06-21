@@ -17,9 +17,9 @@ const filters = [
   {
     id: "subCategories",
     name: "Vehículos",
+    defaultOpen: true,
     options: [
       { label: "Camiones", value: "vehicleType=CAMION", checked: false },
-      { label: "Remolques", value: "vehicleType=REMOLQUE", checked: false },
       { label: "Pick-up", value: "vehicleType=PICK-UP", checked: false },
       { label: "Utilitario", value: "vehicleType=UTILITARIO", checked: false },
       {
@@ -32,6 +32,7 @@ const filters = [
   {
     id: "remolques",
     name: "Remolques",
+    defaultOpen: true,
     options: [
       { label: "Acoplados", value: "vehicleType=ACOPLADO", checked: false },
       {
@@ -73,20 +74,20 @@ const filters = [
     ],
   },
   {
+    id: "tipo",
+    name: "Tipo",
+    options: [
+      { value: "trucktype=CHASIS", label: "Chasis", checked: false },
+      { value: "trucktype=TRACTOR", label: "Tractor", checked: false },
+    ],
+  },
+  {
     id: "combustible",
     name: "Combustible",
     options: [
       { value: "combustible=NAFTA", label: "Nafta", checked: false },
       { value: "combustible=DIESEL", label: "Diesel", checked: false },
       { value: "combustible=GNC", label: "GNC", checked: false },
-    ],
-  },
-  {
-    id: "transmision",
-    name: "Transmisión",
-    options: [
-      { value: "transmision=MANUAL", label: "Manual", checked: false },
-      { value: "transmision=AUTOMATICO", label: "Automático", checked: false },
     ],
   },
 ];
@@ -173,6 +174,7 @@ export default function Example() {
                           as="div"
                           key={section.id}
                           className="border-t border-gray-200 px-4 py-6"
+                          defaultOpen={section.defaultOpen}
                         >
                           {({ open }) => (
                             <>

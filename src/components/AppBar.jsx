@@ -10,6 +10,18 @@ const navigation = [
   { name: "Contacto", href: "#", current: false, link: "/contacto" },
 ];
 
+const options = [
+  { label: "Todos", link: "/vehiculos" },
+  { label: "Camiones", value: "vehicleType=CAMION", checked: false },
+  { label: "Pick-up", value: "vehicleType=PICK-UP", checked: false },
+  { label: "Utilitario", value: "vehicleType=UTILITARIO", checked: false },
+  {
+    label: "Maquinaria Vial",
+    value: "vehicleType=MAQUINARIA-VIAL",
+    checked: false,
+  },
+];
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -84,23 +96,64 @@ export default function AppBar() {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
-              {navigation.map((item) => (
-                <Link to={item.link}>
-                  <Disclosure.Button
-                    key={item.name}
-                    as="a"
-                    className={classNames(
-                      item.current
-                        ? "bg-gray-900 text-white"
-                        : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                      "block rounded-md px-3 py-2 text-base font-medium"
-                    )}
-                    aria-current={item.current ? "page" : undefined}
-                  >
-                    {item.name}
-                  </Disclosure.Button>
-                </Link>
-              ))}
+              <Link to="/">
+                <Disclosure.Button
+                  as="a"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+                  aria-current={undefined}
+                >
+                  Inicio
+                </Disclosure.Button>
+              </Link>
+            </div>
+            <div className="space-y-1 px-2 pb-3 pt-2">
+              <Disclosure>
+                <Disclosure.Button
+                  as="a"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+                  aria-current={undefined}
+                >
+                  Vehiculos
+                </Disclosure.Button>
+                <Disclosure.Panel className="pt-6">
+                  <div className="space-y-6">
+                    {options.map((option, optionIdx) => (
+                      <div key={Math.random()} className="flex items-center">
+                        <Link to={option.link}>
+                          <label
+                            htmlFor={`filter-mobile-${optionIdx}`}
+                            className="ml-7 min-w-0 flex-1 text-white"
+                          >
+                            {option.label}
+                          </label>
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                </Disclosure.Panel>
+              </Disclosure>
+            </div>
+            <div className="space-y-1 px-2 pb-3 pt-2">
+              <Link to="/financiacion">
+                <Disclosure.Button
+                  as="a"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+                  aria-current={undefined}
+                >
+                  Financiación
+                </Disclosure.Button>
+              </Link>
+            </div>
+            <div className="space-y-1 px-2 pb-3 pt-2">
+              <Link to="/contacto">
+                <Disclosure.Button
+                  as="a"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+                  aria-current={undefined}
+                >
+                  Contacto
+                </Disclosure.Button>
+              </Link>
             </div>
           </Disclosure.Panel>
         </>
