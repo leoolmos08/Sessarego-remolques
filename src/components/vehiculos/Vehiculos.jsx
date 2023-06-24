@@ -8,6 +8,7 @@ import { Fragment, useEffect, useState } from "react";
 
 import ListaVehiculosContainer from "./ListaVehiculosContainer";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { useParams } from "react-router-dom";
 
 const sortOptions = [
   { name: "Mostrar 6 elementos", value: 6, current: false },
@@ -101,10 +102,19 @@ export default function Example() {
   const [otherFilters, setOtherFilters] = useState(["_sort=priority:DESC"]);
   const [otherFiltersString, setOtherFiltersString] = useState("");
   const [itemsPerPage, setItemsPerPage] = useState(6);
+  const { categoria } = useParams();
 
   useEffect(() => {
     setOtherFilters([]);
   }, []);
+
+  useEffect(() => {
+    categoria === undefined
+      ? setOtherFilters([])
+      : setOtherFilters([`vehicleType=${categoria}`]);
+  }, [categoria]);
+
+  console.log("filtros", otherFilters);
 
   useEffect(() => {
     setOtherFiltersString(otherFilters.join("&"));

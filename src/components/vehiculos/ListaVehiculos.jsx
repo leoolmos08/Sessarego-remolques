@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 export default function ListaVehiculos({ vehiclesPerPage }) {
   const vehicles = vehiclesPerPage();
   const vehiclesSort = vehicles.sort((a, b) => b.priority - a.priority);
-  console.log("ordenados", vehiclesSort);
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8">

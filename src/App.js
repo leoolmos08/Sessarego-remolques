@@ -21,6 +21,10 @@ function App() {
         <Route path="/financiacion" element={<Financiacion />} />
         <Route path="/vehiculos" element={<Vehiculos />} />
         <Route
+          path="/vehiculos/categorias/:categoria"
+          element={<Vehiculos />}
+        />
+        <Route
           path="/vehiculos/:idVehicle"
           element={<DetalleVehiculoContainer />}
         />

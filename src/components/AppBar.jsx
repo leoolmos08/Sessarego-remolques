@@ -1,4 +1,9 @@
-import { MapPinIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowLeftIcon,
+  MapPinIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
+import React, { useState } from "react";
 
 import { Disclosure } from "@headlessui/react";
 import { Link } from "react-router-dom";
@@ -12,14 +17,23 @@ const navigation = [
 
 const options = [
   { label: "Todos", link: "/vehiculos" },
-  { label: "Camiones", value: "vehicleType=CAMION", checked: false },
-  { label: "Pick-up", value: "vehicleType=PICK-UP", checked: false },
-  { label: "Utilitario", value: "vehicleType=UTILITARIO", checked: false },
+  { label: "Camiones", link: "/vehiculos/categorias/CAMION" },
+  { label: "Remolques", onPress: true },
+  { label: "Pick-up", link: "/vehiculos/categorias/PICK-UP" },
+  { label: "Utilitario", link: "/vehiculos/categorias/UTILITARIO" },
   {
     label: "Maquinaria Vial",
-    value: "vehicleType=MAQUINARIA-VIAL",
-    checked: false,
+    link: "/vehiculos/categorias/MAQUINARIA-VIAL",
   },
+];
+
+const optionsRemolques = [
+  { label: "Acoplados", link: "/vehiculos/categorias/ACOPLADO" },
+  { label: "Semi-Remolques", link: "/vehiculos/categorias/SEMI-REMOLQUE" },
+  { label: "Carrocerías", link: "/vehiculos/categorias/CARROCERIA" },
+  { label: "Bateas", link: "/vehiculos/categorias/BATEA" },
+  { label: "Carretones", link: "/vehiculos/categorias/CARRETON" },
+  { label: "Tolvas", link: "/vehiculos/categorias/TOLVA" },
 ];
 
 function classNames(...classes) {
@@ -27,6 +41,8 @@ function classNames(...classes) {
 }
 
 export default function AppBar() {
+  const [remolquesIsOpen, setRemolquesIsOpen] = useState(false);
+
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -107,31 +123,77 @@ export default function AppBar() {
               </Link>
             </div>
             <div className="space-y-1 px-2 pb-3 pt-2">
-              <Disclosure>
-                <Disclosure.Button
-                  as="a"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-                  aria-current={undefined}
-                >
-                  Vehiculos
-                </Disclosure.Button>
-                <Disclosure.Panel className="pt-6">
-                  <div className="space-y-6">
-                    {options.map((option, optionIdx) => (
-                      <div key={Math.random()} className="flex items-center">
-                        <Link to={option.link}>
-                          <label
-                            htmlFor={`filter-mobile-${optionIdx}`}
-                            className="ml-7 min-w-0 flex-1 text-white"
-                          >
-                            {option.label}
-                          </label>
-                        </Link>
-                      </div>
-                    ))}
-                  </div>
-                </Disclosure.Panel>
-              </Disclosure>
+              {!remolquesIsOpen ? (
+                <Disclosure>
+                  <Disclosure.Button
+                    as="a"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+                    aria-current={undefined}
+                  >
+                    Vehiculos
+                  </Disclosure.Button>
+                  <Disclosure.Panel className="pt-6">
+                    <div className="space-y-6">
+                      {options.map((option, optionIdx) => (
+                        <div
+                          key={Math.random()}
+                          className="flex items-center"
+                          onClick={
+                            option.onPress
+                              ? () => setRemolquesIsOpen(!remolquesIsOpen)
+                              : null
+                          }
+                        >
+                          <Link to={option.link ? option.link : null}>
+                            <label
+                              htmlFor={`filter-mobile-${optionIdx}`}
+                              className="ml-7 min-w-0 flex-1 text-white"
+                            >
+                              {option.label}
+                            </label>
+                          </Link>
+                        </div>
+                      ))}
+                    </div>
+                  </Disclosure.Panel>
+                </Disclosure>
+              ) : (
+                <Disclosure>
+                  <Disclosure.Button
+                    as="a"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium flex-row"
+                    aria-current={undefined}
+                  >
+                    <div className="flex flex-row">
+                      <button
+                        onClick={() => setRemolquesIsOpen(!remolquesIsOpen)}
+                      >
+                        <ArrowLeftIcon
+                          className="h-6 w-6 mr-2"
+                          aria-hidden="true"
+                        />
+                      </button>
+                      Remolques
+                    </div>
+                  </Disclosure.Button>
+                  <Disclosure.Panel className="pt-6">
+                    <div className="space-y-6">
+                      {optionsRemolques.map((option, optionIdx) => (
+                        <div key={Math.random()} className="flex items-center">
+                          <Link to={option.link}>
+                            <label
+                              htmlFor={`filter-mobile-${optionIdx}`}
+                              className="ml-7 min-w-0 flex-1 text-white"
+                            >
+                              {option.label}
+                            </label>
+                          </Link>
+                        </div>
+                      ))}
+                    </div>
+                  </Disclosure.Panel>
+                </Disclosure>
+              )}
             </div>
             <div className="space-y-1 px-2 pb-3 pt-2">
               <Link to="/financiacion">
